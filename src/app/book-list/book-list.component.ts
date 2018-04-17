@@ -7,6 +7,7 @@ import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/cor
 })
 export class BookListComponent implements OnInit, OnChanges {
 	@Input('books') books: any;
+	@Input('isInLibrary') isInLibrary: boolean;
 	private selectedBook: string;
 
 	constructor() { }

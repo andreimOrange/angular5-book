@@ -1,15 +1,16 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{book}}</mat-card-title>
-    <mat-card-subtitle>subtitle</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      asdasdas
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button (click)='onBookSelected()'>SELECT</button>
-  </mat-card-actions>
+    <mat-card-header>
+        <mat-card-title>{{book.volumeInfo.title}}</mat-card-title>
+        <mat-card-subtitle>{{book.volumeInfo?.authors}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{book.volumeInfo.textSnippet}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button *ngIf = '!isBookInLibrary' (click)='onBookSelected()'>SELECT</button>
+        <button mat-button *ngIf = 'isBookInLibrary' (click)='onRemoveBook()'>REMOVE</button>
+    </mat-card-actions>
 </mat-card>

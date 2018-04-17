@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {LibraryService} from '../shared/library.service';
 
 @Component({
 	selector: 'app-book',
@@ -7,14 +8,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 	@Input('book') book: any;
+	@Input('isBookInLibrary') isBookInLibrary: boolean;
 	@Output('selectedBook') selectedBook = new EventEmitter();
-	constructor() { }
+
+	constructor(private libraryService: LibraryService) {
+	}
 
 	ngOnInit() {
 	}
 
 	onBookSelected() {
 		this.selectedBook.emit(this.book);
+		this.libraryService.addBookToLibrary(this.book);
 	}
 
+	onRemoveBook() {
+		this.libraryService.removeBook(this.book);
+	}
 }
