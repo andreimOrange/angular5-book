@@ -1,2 +1,7 @@
 <h1>{{selectedBook}}</h1>
-<app-book *ngFor='let book of books' [book]='book' (selectedBook)='displayBook($event)'></app-book>
+<app-book
+        *ngFor='let book of books'
+          [book]='book'
+          (selectedBook)='displayBook($event)'
+          [isBookInLibrary]="isInLibrary">
+</app-book>

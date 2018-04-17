@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { SearchComponent } from './search/search.component';
+import {HomeComponent} from './home/home.component';
+import {SearchComponent} from './search/search.component';
+import {LibraryComponent} from './library/library.component';
 
 const routes: Routes = [
 	{
@@ -11,8 +11,8 @@ const routes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path: 'list',
-		component: BookListComponent
+		path: 'library',
+		component: LibraryComponent
 	},
 	{
 		path: 'search',
@@ -33,4 +33,5 @@ const routes: Routes = [
 	]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
